@@ -27,7 +27,7 @@ const Task = ({ task, setTasks, tasks, darkMode }) => {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: 50 }}
-        className={`flex items-center justify-between p-4 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} transition-all`}
+        className={`flex items-center justify-between p-4 rounded-lg ${darkMode ? 'bg-gray-800 text-white border border-gray-700' : 'bg-gray-200 text-gray-800'} transition-all`}
       >
         <div className="flex items-center space-x-3">
           <button
@@ -46,7 +46,7 @@ const Task = ({ task, setTasks, tasks, darkMode }) => {
             />
           ) : (
             <span className={`text-lg ${task.isCompleted ? 'line-through text-gray-500' : ''}`}>
-              {task.text}
+              {task.text} - <span className={`font-semibold ${task.priority === 'High' ? 'text-red-500' : task.priority === 'Medium' ? 'text-yellow-500' : 'text-green-500'}`}>{task.priority}</span>
             </span>
           )}
         </div>
